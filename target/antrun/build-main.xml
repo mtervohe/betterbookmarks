@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <mkdir dir="/Users/matthew.hernandez/jive/sbs/betterbookmarks/target/betterbookmarks-1.0-6.0.0.1"/>
+  <unjar dest="/Users/matthew.hernandez/jive/sbs/betterbookmarks/target/betterbookmarks-1.0-6.0.0.1" src="/Users/matthew.hernandez/jive/sbs/betterbookmarks/target/betterbookmarks-1.0-6.0.0.1.jar"/>
+</target>
+</project>
