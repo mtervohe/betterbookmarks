@@ -12,11 +12,21 @@ import org.apache.log4j.Logger;
 
 
 public class ProfileBetterBookmarksBrowseAction extends com.jivesoftware.community.work.action.ProfileBookmarksBrowseAction {
+
+    @Override
+    public String execute(){
+        System.out.println("OVERRIDE execute");
+        model = getBrowseActionSupport().getPopulatedBrowseViewBean();
+        return SUCCESS;
+    }
+
     @Override
     public String getBrowseAction() {
-        System.out.println("getBrowseAction method called (in ProfileBetterBookmarksBrowseAction)");
-        return "profile-betterbookmarks";
+        System.out.println("OVERRIDE getBrowseAction");
+        return "profile-bookmarks";
     }
+
+
     /*
     //Get that logger in there!
     Logger log = Logger.getLogger(ProfileBetterBookmarksBrowseAction.class);

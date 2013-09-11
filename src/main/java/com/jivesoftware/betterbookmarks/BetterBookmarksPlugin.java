@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
  * Time: 8:46 PM
  * To change this template use File | Settings | File Templates.
  */
-public class BetterBookmarksPlugin extends PlaceTabLink implements Plugin {
+public class BetterBookmarksPlugin implements Plugin  {
     //Initialize the logger so you can create some logging level messages!
     Logger log = Logger.getLogger(BetterBookmarksPlugin.class);
     /**
@@ -39,20 +39,10 @@ public class BetterBookmarksPlugin extends PlaceTabLink implements Plugin {
     }
     */
 
-    @Override
-    public String getUrl() {
-        JiveContainer container = uiComponentContext.getContainer();
-        return url + "/" + container.getName() + "/betterbookmarks.jspa";
-    }
-
-
     /*
     public void setEntitlementCheckProvider(EntitlementCheckProvider<Event> entitlementCheckProvider) {
         this.entitlementCheckProvider = entitlementCheckProvider;
     }
     */
-
-
-
 
 }

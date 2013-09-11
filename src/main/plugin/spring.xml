@@ -7,6 +7,14 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
        default-autowire="no" default-init-method="init" default-destroy-method="destroy">
 
+    <bean id="betterbookmarks" class="com.jivesoftware.betterbookmarks.BetterBookmarksPlugin" ></bean>
+
+    <!---->
+    <bean id="peopleUrlMapping" scope="prototype"
+          class="com.jivesoftware.community.web.struts.mapping.PeopleURLMappingSupport"> </bean>
+
+
+    <!--
     <bean id="profileTabLinksSupportChild" class="com.jivesoftware.community.util.spring.MergeableCollection" parent="placeTabLinks" scope="prototype">
         <property name="source">
             <util:list value-type="com.jivesoftware.community.web.component.ActionLink" scope="prototype">
@@ -22,7 +30,7 @@
         <property name="url" value="/people" />
     </bean>
 
-
+    -->
 
 </beans>
        <!--

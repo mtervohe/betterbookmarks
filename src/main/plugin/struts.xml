@@ -1,31 +1,32 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
 <struts>
-    <package name="betterbookmarks-actions" extends="community-actions-soy" >
-
-
+    <package name="betterbookmarks-actions" namespace="" extends="community-default">
         <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction">
             <result name="success" type="soy">jive.betterbookmarks.body</result>
         </action>
 
     </package>
 
+    <package name="community-action" extends="community-default">
+    <action name="profile" class="com.jivesoftware.community.action.ViewProfile">
+        <interceptor-ref name="defaultStack"/>
+        <interceptor-ref name="store">
+            <param name="operationMode">RETRIEVE</param>
+        </interceptor-ref>
+        <result name="refresh" type="redirect">/people/${targetUser.username}</result>
+        <result name="success" type="freemarker">/plugins/betterbookmarks/resources/templates/view-profile.ftl</result>
+        <result name="success-approvals">/template/global/view-profile-approvals.ftl</result>
+        <result name="success-moderation">/template/global/view-profile-moderation.ftl</result>
+        <result name="success-vcard">
+            <param name="contentType">text/x-vcard</param>
+            <param name="location">/template/global/view-profile-vcard.ftl</param>
+        </result>
+        <result name="success-content-type" type="redirect">${viewProfileContentTypeURL}</result>
 
-
+    </action>
+    </package>
 
 </struts>
-        <!--
-      jive.betterbookmarks.body
-       jive.betterbookmarks.main
-      /plugins/betterbookmarks/resources/templates/betterBookmarks-Page.ftl
-
-      -->
-        <!--
-        <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.action.BetterBookmarksBrowseAction">
-             <result name="success" type="soy">jive.bookmarks.main</result>
-         </action>
-
-         <action name="profile-betterbookmarks" class="com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseActionAction">
-              <result name="success" type="soy">jive.bookmarks.body</result>
-         </action>
-         -->
