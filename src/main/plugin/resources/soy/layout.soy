@@ -1,0 +1,61 @@
+{namespace jive.betterbookmark.browse.layout}
+
+/**
+* Renders the layout body.
+*
+* @param browseViewID A unique name for this browse view.
+* @param archetypeID The ID of the archetype associated with this browse view.
+* @param itemsView An {@link ItemsViewBean} object which has associated items.
+* @param? layoutClass An optional class passed to the layout div element
+* @param urlParams map of query parameters for the last request
+* @param urlPath path for the last request
+*
+* @depends template=jive.betterbookmark.browse.filter.*
+* @depends template=jive.betterbookmark.browse.grid.*
+* @depends template=jive.shared.soy.paginationLinks
+*/
+{template .layoutBody}
+ <div class="j-layout j-layout-sl clearfix j-contained j-contained-tabs {if $layoutClass}{$layoutClass}{/if} j-rc5">
+
+     <div class="j-column-wrap-l">
+         <div class="j-column j-column-l j-column-l-nav">
+
+             /*Renders the browse nav bar/filter*/
+             /*No Filters for now, add later
+             {call jive.betterbookmark.browse.filter.filters data="$filterGroup"}
+                 {param itemsView: $itemsView /}
+                 {param urlParams: $urlParams /}
+                 {param urlPath: $urlPath /}
+             {/call}
+             */
+
+            <div>
+                 /*Renders the bookmark list - Originally called jive.browse.grid.itemGrid in item_grid.soy*/
+                 <div id="j-browse-item-grid" class="j-box-body" role="main" aria-label="{i18nText('browse.filter.grid')}">
+                     {call jive.betterbookmark.browse.grid.itemGrid data="$itemsView"}
+                         {param browseViewID: $browseViewID/}
+                         {param archetypeID: $archetypeID/}
+                     {/call}
+                 </div>
+
+
+                  /*Other - bottom of the page*/
+                 {call jive.browse.grid.moreSearchResultsAvailableHolder data="$itemsView"/}
+
+                 <div class="j-browse-filter-row j-bottom-row j-rc4">
+                     {call jive.shared.soy.paginationLinks}
+                         {param current: $itemsView.pageNumber /}
+                         {param max: $itemsView.pageNumber + ($itemsView.hasNext ? 1 : 0) /}
+                         {param pageSize: $itemsView.pageSize /}
+                         {param urlParams: $urlParams /}
+                         {param urlPath: $urlPath /}
+                     {/call}
+                 </div>
+
+            </div>
+
+         </div>
+     </div>
+
+ </div>
+{/template}

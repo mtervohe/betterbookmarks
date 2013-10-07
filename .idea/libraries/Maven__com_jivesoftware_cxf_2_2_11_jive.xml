@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jivesoftware:cxf:2.2.11-jive">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/cxf/2.2.11-jive/cxf-2.2.11-jive.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/cxf/2.2.11-jive/cxf-2.2.11-jive-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/cxf/2.2.11-jive/cxf-2.2.11-jive-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

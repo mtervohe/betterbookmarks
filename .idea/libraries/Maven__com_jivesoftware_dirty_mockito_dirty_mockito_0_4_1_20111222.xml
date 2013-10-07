@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jivesoftware.dirty-mockito:dirty-mockito:0.4.1-20111222">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/dirty-mockito/dirty-mockito/0.4.1-20111222/dirty-mockito-0.4.1-20111222.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/dirty-mockito/dirty-mockito/0.4.1-20111222/dirty-mockito-0.4.1-20111222-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/dirty-mockito/dirty-mockito/0.4.1-20111222/dirty-mockito-0.4.1-20111222-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

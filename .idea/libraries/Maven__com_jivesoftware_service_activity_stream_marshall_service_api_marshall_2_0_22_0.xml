@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jivesoftware.service.activity-stream.marshall:service-api-marshall:2.0.22.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/service/activity-stream/marshall/service-api-marshall/2.0.22.0/service-api-marshall-2.0.22.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/service/activity-stream/marshall/service-api-marshall/2.0.22.0/service-api-marshall-2.0.22.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jivesoftware/service/activity-stream/marshall/service-api-marshall/2.0.22.0/service-api-marshall-2.0.22.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

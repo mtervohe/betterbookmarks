@@ -1,0 +1,122 @@
+{namespace jive.betterbookmark.browse.grid}
+
+/**
+* Renders the items section for a browse view (both the thumbnail view and list view)
+*
+* @param items A collection of {@link ContentObjectViewBean}s.
+* @param? maxPageReached message to display if the user has reached the max page
+* @param? noResultTemplateConfig
+*/
+{template .itemGrid}
+    {if $maxPageReached}
+       {call .maxPageReached data="all"/}
+    {elseif length($items) < 1 and $noResultTemplateConfig}
+        {call jive.shared.soy.render data="$noResultTemplateConfig"}
+            {param failGracefully: false /}
+        {/call}
+    {else}
+        {call .listGrid data="all" /}
+    {/if}
+{/template}
+
+/**
+ * Renders the items for a browse view in a list layout
+ *
+ * @param items A collection of {@link ContentObjectViewBean}s.
+ * @param itemGridDetailsColumns A context to use to control header rendering.
+ * @param? browseViewID The ID of the browse view, if specified.
+ * @param currentUserPartner Whether or not the current user is a partner user
+ */
+{template .listGrid private="true"}
+    <div class="j-browse-details">
+        <table class="j-browse-list" cellspacing="0" cellpadding="0">
+
+            /*Queries bookmark info from the DB*/
+            <tbody class="j-browse-details-tbody">
+            {foreach $item in $items}
+                {if $browseViewID}
+                    {call jive.shared.soy.render}
+                        {param templateName: $item.detailTemplate /}
+                        {param data: extend($item, Map(
+                            p('browseViewID', $browseViewID),
+                            p('columns', $itemGridDetailsColumns),
+                            p('currentUserPartner', $currentUserPartner)
+                        )) /}
+                        {param failGracefully: false /}
+                    {/call}
+                {else}
+                    {call jive.shared.soy.render}
+                        {param templateName: $item.detailTemplate /}
+                        {param data: extend($item, Map(
+                            p('currentUserPartner', $currentUserPartner)
+                        )) /}
+                        {param failGracefully: false /}
+                    {/call}
+                {/if}
+            {ifempty}
+                // adding an arbitrary colspan number here to ensure this cell spans the entire table
+                <tr><td colspan="10">
+                    //Should never happen as long as accessed through .itemGrid
+                    {i18nText('browse.noresults')}
+                </td></tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+{/template}
+
+/**
+* A message to show if the max page has been reached.
+*
+* @param? archetypeID the browse archetype to use (people, places, etc)
+* @depends i18nKeys=browse.content.max.pages.message
+* @depends i18nKeys=browse.people.max.pages.message
+* @depends i18nKeys=browse.places.max.pages.message
+*/
+{template .maxPageReached private="true"}
+    <div class="j-browse-info j-empty font-color-meta">
+    {if $archetypeID}
+        {i18nText('browse.' + $archetypeID + '.max.pages.message')}
+    {else}
+         No archetype specified.
+    {/if}
+    </div>
+{/template}
+
+/**
+* Render a div holder for the "more search results available" message.
+*/
+{template .moreSearchResultsAvailableHolder}
+    <div id="j-more-search-results-available">
+        {call jive.browse.grid.moreSearchResultsAvailable data="all"/}
+    </div>
+{/template}
+
+/**
+* Conditional logic at the ItemsViewBean layer the "more search results available" message.
+*
+* @param searchResultsInfo A searchResultsInfo object.
+*/
+{template .moreSearchResultsAvailable}
+    {if $searchResultsInfo}
+        {call jive.browse.grid.moreSearchResultsAvailableBody data="$searchResultsInfo"/}
+    {/if}
+{/template}
+
+/**
+* A message to show the user that search results may be truncated.
+*
+* @param searchArchetype The tab to show in search view.
+* @param searchQuery The search query with which to populate the link.
+* @depends i18nKeys=browse.moresearchresults
+*/
+{template .moreSearchResultsAvailableBody}
+    <span class="font-color-meta">
+        {call jive.shared.soy.i18nHelper}
+            {param i18nKey}browse.moresearchresults{/param}
+            {param arg0}<a href="{buildUrl('/search.jspa?view=' + $searchArchetype + '&q=' + $searchQuery)}">{/param}
+            {param arg1}</a>{/param}
+            {param noAutoEscape}true{/param}
+        {/call}
+    </span>
+{/template}
