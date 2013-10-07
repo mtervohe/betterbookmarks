@@ -10,14 +10,21 @@
     <!-- Database Key that should always be added, writing to the database or not -->
     <databaseKey>1000000</databaseKey>
 
+
+    <!-- URL mapping class -->
+    <urlmapping prefix="/betterbookmarks" class="com.jivesoftware.community.web.struts.mapping.PeopleURLMappingSupport" />
+
     <!-- you will want to change your class name here! -->
     <class>com.jivesoftware.betterbookmarks.BetterBookmarksPlugin</class>
+    <class>com.jivesoftware.betterbookmarks.view.ProfileBetterBookmarksBrowseAction</class>
 
-    <!---->
-    <soy src="/plugins/betterbookmarks/resources/soy/better-bookmarks.soy" />
+    <!--Soy files. -->
+    <soy src="/plugins/betterbookmarks/resources/soy/betterbookmark.soy" />
+    <soy src="/plugins/betterbookmarks/resources/soy/item_grid.soy" />
+    <soy src="/plugins/betterbookmarks/resources/soy/layout.soy" />
+    <soy src="/plugins/betterbookmarks/resources/soy/filters.soy" />
 
-
-    <!-- Defines the menus where the plugin will exist, can find these in the ui-components.xml of the core code -->
+    <!-- User Profile tab -->
     <components>
         <component id="user-profile">
             <tab id="betterbookmarks" cssClass="jive-icon-sml jive-icon-bookmark">

@@ -17,21 +17,8 @@ public interface BetterBookmark extends JiveContentObject, MentionEnabled {
 
     ObjectBetterBookmark getObjectBetterBookmark();
 
-    JiveObject getCreator();
-
     @RequiresUpdate
     void setSubject(String subject);
-
-    /**
-     * Returns <tt>true</tt> if the subject returned by {@link #getSubject()} was defined by the user. A return value of
-     * false indicates that the subject was inherited from the favorited object.
-     *
-     * @return <tt>true</tt> if the subject returned by {@link #getSubject()} was defined by the user.
-     */
-    boolean isUserDefinedSubject();
-
-    @RequiresUpdate
-    void setBody(String body);
 
     JiveContainer getContainer();
 

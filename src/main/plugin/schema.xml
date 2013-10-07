@@ -1,2 +1,21 @@
-<schema name="betterbookmarks">
+<schema name="betterbookmark">
+
+    <!--  Table for Betterbookmark -->
+    <table name="jiveBetterBookmark" description="provides bookmarking for the BetterBookmark plugin">
+        <column name="id" type="bigint" nullable="false" description="uniquely identifies betterbookmark system wide"/>
+        <column name="markedType" type="int" nullable="false"
+                description="the type of entity which is being bookmarked"/>
+        <column name="markedId" type="bigint" nullable="false"
+                description="the unique id related to the entity which is being bookmarked"/>
+        <column name="creatorId" type="bigint" nullable="false"
+                description="the id of the entity which created the betterbookmark"/>
+        <column name="subject" type="varchar" size="255" nullable="true"
+                description="subject or title of the bookmark"/>
+        <column name="creationDate" type="bigint" nullable="false"
+                description="the date and time on which this betterbookmark was created"/>
+        <column name="modificationDate" type="bigint" nullable="false"
+                description="the date and time on which this betterbookmark was last modified"/>
+
+        <index type="primary" name="jiveBetterBookmark_pk" column="id"/>
+    </table>
 </schema>
