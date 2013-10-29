@@ -3,30 +3,47 @@
 
 
 <struts>
-    <package name="betterbookmarks-actions" namespace="" extends="community-default">
-        <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction">
-            <result name="success" type="soy">jive.betterbookmarks.body</result>
-        </action>
-
-    </package>
 
     <package name="community-action" extends="community-default">
-    <action name="profile" class="com.jivesoftware.community.action.ViewProfile">
-        <interceptor-ref name="defaultStack"/>
-        <interceptor-ref name="store">
-            <param name="operationMode">RETRIEVE</param>
-        </interceptor-ref>
-        <result name="refresh" type="redirect">/people/${targetUser.username}</result>
-        <result name="success" type="freemarker">/plugins/betterbookmarks/resources/templates/view-profile.ftl</result>
-        <result name="success-approvals">/template/global/view-profile-approvals.ftl</result>
-        <result name="success-moderation">/template/global/view-profile-moderation.ftl</result>
-        <result name="success-vcard">
-            <param name="contentType">text/x-vcard</param>
-            <param name="location">/template/global/view-profile-vcard.ftl</param>
-        </result>
-        <result name="success-content-type" type="redirect">${viewProfileContentTypeURL}</result>
+        <action name="profile" class="com.jivesoftware.community.action.ViewProfile">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <result name="refresh" type="redirect">/people/${targetUser.username}</result>
+            <result name="success" type="freemarker">/plugins/betterbookmarks/resources/templates/view-profile.ftl</result>
+            <result name="success-approvals">/template/global/view-profile-approvals.ftl</result>
+            <result name="success-moderation">/template/global/view-profile-moderation.ftl</result>
+            <result name="success-vcard">
+                <param name="contentType">text/x-vcard</param>
+                <param name="location">/template/global/view-profile-vcard.ftl</param>
+            </result>
+            <result name="success-content-type" type="redirect">${viewProfileContentTypeURL}</result>
 
-    </action>
+        </action>
+    </package>
+
+    <package name="betterbookmarks-actions" namespace="" extends="community-default">
+        <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.view.ProfileBetterBookmarksBrowseAction">
+            <result name="success" type="soy">jive.betterbookmark.body</result>
+        </action>
+
+        <!--
+        <action name="betterbookmark-index" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction">
+            <result name="success"></result>
+        </action>
+
+        <action name="betterbookmark-add" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-add">
+            <result name="success"></result>
+            <result name="error"></result>
+         </action>
+
+        <action name="betterbookmark-delete" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-delete">
+            <result name="success"></result>
+            <result name="error"></result>
+         </action>
+        -->
+
     </package>
 
 </struts>

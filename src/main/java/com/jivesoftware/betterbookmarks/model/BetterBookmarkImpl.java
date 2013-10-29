@@ -25,11 +25,8 @@ public class BetterBookmarkImpl implements BetterBookmark {
 
     protected final long id;
     protected final ObjectBetterBookmark bookmarkedObject;
-    //protected final FavoriteConverter.ObjectProvider creator;
-    protected final User owner;
     protected final UserContainer container;
     protected final String subject;
-    //protected Document bodyDoc;
     protected final Date creationDate;
     protected final Date modificationDate;
 
@@ -43,25 +40,14 @@ public class BetterBookmarkImpl implements BetterBookmark {
         this.objectType = objectType;
         this.id = id;
         this.bookmarkedObject = bookmarkedObject;
-        //this.creator = creator;
-        this.owner = owner;
         this.container = container;
         if (bodyStr == null) {
             bodyStr = "";
         }
-        //this.bodyDoc = FavoriteHelper.converteBodyStringToW3CDoc(bodyStr);
-
-        //this.favoriteInfoProvider = favoriteInfoProvider;
         this.subject = subject;
         this.creationDate = DateUtils.newInstance(creationDate);
         this.modificationDate = DateUtils.newInstance(modificationDate);
     }
-
-
-
-
-
-
 
     public Document getBody() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
@@ -141,27 +127,15 @@ public class BetterBookmarkImpl implements BetterBookmark {
     }
 
     public ObjectBetterBookmark getObjectBetterBookmark() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public JiveObject getCreator() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return bookmarkedObject;
     }
 
     public void setSubject(String subject) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public boolean isUserDefinedSubject() {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public void setBody(String body) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
     public JiveContainer getContainer() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return container;
     }
 
     @Override
@@ -171,16 +145,10 @@ public class BetterBookmarkImpl implements BetterBookmark {
         sb.append("{objectType=").append(objectType);
         sb.append(", id=").append(id);
         sb.append(", bookmarkedObject=").append(bookmarkedObject);
-        //sb.append(", creator=").append(creator);
-        sb.append(", owner=").append(owner);
         sb.append(", container=").append(container);
-        //sb.append(", newSubject='").append(newSubject).append('\'');
         sb.append(", subject='").append(subject).append('\'');
-        //sb.append(", newBody='").append(newBody).append('\'');
-        //sb.append(", body=").append(bodyStr);
         sb.append(", creationDate=").append(creationDate == null ? null : creationDate.getTime());
         sb.append(", modificationDate=").append(modificationDate == null ? null : modificationDate.getTime());
-        //sb.append(", status=").append(status);
         sb.append('}');
         return sb.toString();
     }
