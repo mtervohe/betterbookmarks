@@ -15,8 +15,8 @@ import java.util.Map;
 public class PeopleURLMappingSupport extends PeopleURLMapping {
 
     public void process(String uri, ActionMapping mapping) {
+        //System.out.println("PeopleURLMappingSupport called process");
 
-        System.out.println("PeopleURLMappingSupport called");
         String[] uriElements = uri.split("/");
         Map params = mapping.getParams();
         if (null == params) {
@@ -24,10 +24,7 @@ public class PeopleURLMappingSupport extends PeopleURLMapping {
         }
         String username = uriElements[2];
 
-        // /clearspace/people
-        if (uri.startsWith("/people/") && (uri.endsWith("/betterbookmarks") || uri.endsWith("/betterbookmarks/"))) {
-            System.out.println("PeopleURLMappingSupport /betterbookmarks IF called");
-
+        if (uri.startsWith("/people/") && (uri.endsWith("/betterbookmarks") || uri.endsWith("/betterbookmarks/") )) {
 
             mapping.setName("profile");
             params.put("view", "betterbookmarks");

@@ -24,25 +24,32 @@
     </package>
 
     <package name="betterbookmarks-actions" namespace="" extends="community-default">
-        <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.view.ProfileBetterBookmarksBrowseAction">
+
+        <action name="betterbookmarks" class="com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction">
             <result name="success" type="soy">jive.betterbookmark.body</result>
         </action>
 
-        <!--
-        <action name="betterbookmark-index" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction">
-            <result name="success"></result>
-        </action>
-
-        <action name="betterbookmark-add" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-add">
-            <result name="success"></result>
-            <result name="error"></result>
+<!--
+         <action name="addfolder"  method="doAdd" class="com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction">
+                    <result name="success" type="chain">betterbookmarks</result>
          </action>
-
-        <action name="betterbookmark-delete" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-delete">
-            <result name="success"></result>
-            <result name="error"></result>
+          <action name="addfolder" method="addfolder" class="com.jivesoftware.betterbookmarks.action.CreateBookmarkFolder">
+                    <result name="success" type="soy">jive.betterbookmark.body</result>
          </action>
-        -->
+                <action name="betterbookmark-index" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction">
+                    <result name="success"></result>
+                </action>
+
+                <action name="betterbookmark-add" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-add">
+                    <result name="success"></result>
+                    <result name="error"></result>
+                 </action>
+
+                <action name="betterbookmark-delete" class="com.jivesoftware.betterbookmarks.view.BetterBookmarkAction" method="betterbookmark-delete">
+                    <result name="success"></result>
+                    <result name="error"></result>
+                 </action>
+                -->
 
     </package>
 

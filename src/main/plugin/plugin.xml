@@ -7,22 +7,31 @@
     <minServerVersion>6.0</minServerVersion>
     <maxServerVersion>6.0.3</maxServerVersion>
 
+    <!-- Needed to add DB tables -->
+    <databaseVersion>60200000</databaseVersion>
+
     <!-- Database Key that should always be added, writing to the database or not -->
     <databaseKey>1000000</databaseKey>
-
 
     <!-- URL mapping class -->
     <urlmapping prefix="/betterbookmarks" class="com.jivesoftware.community.web.struts.mapping.PeopleURLMappingSupport" />
 
     <!-- you will want to change your class name here! -->
     <class>com.jivesoftware.betterbookmarks.BetterBookmarksPlugin</class>
-    <class>com.jivesoftware.betterbookmarks.view.ProfileBetterBookmarksBrowseAction</class>
+    <class>com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction</class>
 
     <!--Soy files. -->
     <soy src="/plugins/betterbookmarks/resources/soy/betterbookmark.soy" />
     <soy src="/plugins/betterbookmarks/resources/soy/item_grid.soy" />
     <soy src="/plugins/betterbookmarks/resources/soy/layout.soy" />
     <soy src="/plugins/betterbookmarks/resources/soy/filters.soy" />
+
+    <!-- CSS files. -->
+    <css src="/resources/styles/betterbookmark.css"/>
+
+    <!-- JavaScript files.
+    <javascript src="/resources/script/apps/content/folder/creation/main.js" />
+    -->
 
     <!-- User Profile tab -->
     <components>

@@ -29,9 +29,9 @@
  */
 {template .listGrid private="true"}
     <div class="j-browse-details">
-        <table class="j-browse-list" cellspacing="0" cellpadding="0">
+        <table id="browse-list" cellspacing="0" cellpadding="0">
 
-            /*Queries bookmark info from the DB*/
+            /*Queries bookmark info from the DB - jive.shared.soy.render is located in the soy-core.soy file*/
             <tbody class="j-browse-details-tbody">
             {foreach $item in $items}
                 {if $browseViewID}

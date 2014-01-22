@@ -2,10 +2,14 @@
 
 /**
 * Renders the layout body.
-*
 * @param browseViewID A unique name for this browse view.
 * @param archetypeID The ID of the archetype associated with this browse view.
 * @param itemsView An {@link ItemsViewBean} object which has associated items.
+* param? hideSidebar Whether or not to hide or show the sidebar.
+* @param filterGroup A {@link FilterGroupBean} object with nested filters.
+* param? hideFilterGroup Whether or not the filter group should be displayed.
+* param? firstColumnContent content to display below filters in the left column
+* param? lowerContent content to display below browsable items
 * @param? layoutClass An optional class passed to the layout div element
 * @param urlParams map of query parameters for the last request
 * @param urlPath path for the last request
@@ -13,49 +17,104 @@
 * @depends template=jive.betterbookmark.browse.filter.*
 * @depends template=jive.betterbookmark.browse.grid.*
 * @depends template=jive.shared.soy.paginationLinks
+*
 */
 {template .layoutBody}
- <div class="j-layout j-layout-sl clearfix j-contained j-contained-tabs {if $layoutClass}{$layoutClass}{/if} j-rc5">
+     <div class="j-layout j-layout-sl clearfix j-contained j-contained-tabs {if $layoutClass}{$layoutClass}{/if} j-rc5">
 
-     <div class="j-column-wrap-l">
-         <div class="j-column j-column-l j-column-l-nav">
+         <div class="j-column-wrap-l">
+             <div class="j-column j-column-l j-column-l-nav">
 
-             /*Renders the browse nav bar/filter*/
-             /*No Filters for now, add later
-             {call jive.betterbookmark.browse.filter.filters data="$filterGroup"}
-                 {param itemsView: $itemsView /}
-                 {param urlParams: $urlParams /}
-                 {param urlPath: $urlPath /}
-             {/call}
-             */
-
-            <div>
-                 /*Renders the bookmark list - Originally called jive.browse.grid.itemGrid in item_grid.soy*/
-                 <div id="j-browse-item-grid" class="j-box-body" role="main" aria-label="{i18nText('browse.filter.grid')}">
-                     {call jive.betterbookmark.browse.grid.itemGrid data="$itemsView"}
-                         {param browseViewID: $browseViewID/}
-                         {param archetypeID: $archetypeID/}
-                     {/call}
-                 </div>
+                 /*Renders the browse nav bar/filter*/
+                 {call jive.betterbookmark.browse.filter.filters data="$filterGroup"}
+                     {param itemsView: $itemsView /}
+                     {param urlParams: $urlParams /}
+                     {param urlPath: $urlPath /}
+                 {/call}
 
 
-                  /*Other - bottom of the page*/
-                 {call jive.browse.grid.moreSearchResultsAvailableHolder data="$itemsView"/}
+                <div id="maincontainer">
+                    <div id="contentwrapper">
+                        <div id="contentcolumn">
+                            <div class="innertube"><b>Content Column</b></div>
+                        </div>
+                    </div>
+                    <div id="leftcolumn">
+                         <div class="innertube"><b>Bookmark Column</b></div>
+                         <div id="j-browse-item-grid" class="j-box-body" role="main" aria-label="{i18nText('browse.filter.grid')}">
+                             {call jive.betterbookmark.browse.grid.itemGrid data="$itemsView"}
+                                 {param browseViewID: $browseViewID/}
+                                 {param archetypeID: $archetypeID/}
+                             {/call}
+                         </div>
+                    </div>
+                    <div id="rightcolumn">
+                    <div class="innertube"><b>Managed Bookmark Column</b></div>
 
-                 <div class="j-browse-filter-row j-bottom-row j-rc4">
-                     {call jive.shared.soy.paginationLinks}
-                         {param current: $itemsView.pageNumber /}
-                         {param max: $itemsView.pageNumber + ($itemsView.hasNext ? 1 : 0) /}
-                         {param pageSize: $itemsView.pageSize /}
-                         {param urlParams: $urlParams /}
-                         {param urlPath: $urlPath /}
-                     {/call}
-                 </div>
+                     <div id="addfolder"></div>
+                     <div id="list"></div>
 
-            </div>
+                     <h2>
+                        Create a Managed Bookmark
+                     <h2>
+                     <div>
+                         <textarea id="managed-bookmark-textarea" cols="100" rows="1"></textarea>
+                     </div>
+                     <div>
+                        <button id="managed-bookmark-create">Create</button>
+                     </div>
 
+
+                    </div>
+                </div>
+             </div>
          </div>
+
+     </div>
+{/template}
+
+/*
+
+
+
+                          <script>
+                              require('betterbookmark/main');
+                          </script>
+<head>
+  <script>
+  $j(document).ready(function(){lb}
+    $j("#button1").click(function(){lb}
+      $j("#test").hide();
+    {rb});
+  {rb});
+  </script>
+</head>
+
+
+
+      settings-plugin.ftl
+
+    <form name="input" method="get" action="{buildUrl('createbookmarkfolder')}">
+        <input class="j-btn-global j-selected" type="submit">
+        <br>
+        Folder Name: <input type="text" name="foldername" >
+    </form>
+
+     <div id="j-browse-item-grid" class="j-box-body" role="main" aria-label="{i18nText('browse.filter.grid')}">
+         {call jive.betterbookmark.browse.grid.itemGrid data="$itemsView"}
+             {param browseViewID: $browseViewID/}
+             {param archetypeID: $archetypeID/}
+         {/call}
      </div>
 
- </div>
-{/template}
+$j(document).ready(function() {
+        $j(function(){lb}
+            require(['jive.Carousel.Manage.Main'], function(M) {lb}
+                M({lb}
+                    containerType: '{$containerType}',
+                    containerId: '{$containerId}'
+                {rb});
+            {rb});
+        {rb});
+
+*/

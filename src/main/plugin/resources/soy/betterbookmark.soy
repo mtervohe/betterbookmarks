@@ -1,5 +1,6 @@
 {namespace jive.betterbookmark}
-
+ 
+ 
 /**
 * Renders a modified version of the content section for "bookmarks". This is used on pages such as the user profile.
 *
@@ -10,23 +11,29 @@
 * @depends path=/resources/scripts/apps/bookmark_app/main.js
 * @depends path=/resources/scripts/apps/browse/activity/info/main.js
 *
+* @depends path=/plugins/betterbookmarks/resources/scripts/apps/betterbookmark/main.js
+*
 * @depends template=jive.betterbookmark.browse.*
 */
 {template .body}
-
+ 
+ 
     {call jive.shared.soy.resourceInlineJs}
         {param code}
-            $j(document).ready(
-                function() {lb}
-                    var jiveFollow = new jive.FollowApp.Main({lb} i18n:null {rb});
+            $j(document).ready( function() {lb}
+                require(['apps/betterbookmark/main'], function(M) {lb}
+                    new M();
                 {rb});
+            {rb});
         {/param}
     {/call}
-
+    {outputResources('script','',false)|noAutoescape}
+ 
+ 
     /*Renders the profile page - originally called jive.browse.layout.layoutBody in layout.soy*/
     {call jive.betterbookmark.browse.layout.layoutBody data="all"}
         {param browseViewID: $browseViewID/}
-
     {/call}
-
+ 
+ 
 {/template}

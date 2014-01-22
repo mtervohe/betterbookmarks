@@ -1,0 +1,87 @@
+body{
+    margin:0;
+    padding:0;
+    line-height: 1.5em;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#contentwrapper{
+    float: right;
+    width: 100%;
+    margin-left: -514px; /*Set left margin to -(leftColumnWidth + RightColumnWidth + contentwrapper.margin-right)*/
+    margin-right: 10px;
+    padding-bottom: 25px;
+}
+
+#contentcolumn{
+    margin-left: 504px; /*Set left margin to (leftColumnWidth + RightColumnWidth + )*/
+    background: #f8f9ff;
+    height: 700px;
+    overflow: auto;
+
+}
+
+#leftcolumn{
+    float: left;
+    max-width: 250px; /*Width of left column in pixels*/
+    background: rgba(248, 249, 255, 0.0);
+    height: 700px;
+    overflow-y:auto;
+}
+
+#rightcolumn{
+    float: left;
+    width: 250px; /*Width of right column in pixels*/
+    background: #eceef4;
+    height: 700px;
+    overflow-y:auto;
+}
+
+#footer{
+    clear: both;
+    width: 100%;
+    background: black;
+    color: #FFF;
+    text-align: center;
+    padding: 4px 0;
+}
+
+#footer a{
+    color: #FFFF80;
+}
+
+.innertube{
+    margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+    margin-top: 0;
+}
+
+table#browse-list {
+}
+
+table#browse-list td {
+    font-size: 1em;
+    padding-right: 10px;
+    width: 165px;
+    max-width: 165px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+table#browse-list tbody {
+
+}
+
+.table-tr {
+
+}
+
+.browse-details-tbody {
+
+}
+.buttonOne {
+    color: blue;
+}
+

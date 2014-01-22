@@ -1,2 +1,0 @@
-build.project.name=\${env.TEAMCITY_PROJECT_NAME}
-build.number=\${env.BUILD_NUMBER}
