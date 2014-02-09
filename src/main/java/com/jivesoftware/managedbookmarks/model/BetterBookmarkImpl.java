@@ -1,8 +1,7 @@
-package com.jivesoftware.betterbookmarks.model;
+package com.jivesoftware.managedbookmarks.model;
 
 import com.jivesoftware.base.User;
 import com.jivesoftware.community.JiveContainer;
-import com.jivesoftware.community.JiveObject;
 import com.jivesoftware.community.UserContainer;
 import com.jivesoftware.community.objecttype.JiveObjectType;
 import com.jivesoftware.util.DateUtils;

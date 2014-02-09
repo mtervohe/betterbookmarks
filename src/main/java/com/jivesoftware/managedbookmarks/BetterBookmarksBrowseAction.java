@@ -1,4 +1,4 @@
-package com.jivesoftware.betterbookmarks;
+package com.jivesoftware.managedbookmarks;
 
 import com.jivesoftware.community.action.HasMetaDescription;
 import com.jivesoftware.community.bookmarks.rest.BookmarksViewBean;
@@ -10,8 +10,8 @@ import com.jivesoftware.community.browse.rest.impl.ItemsViewBean;
 import com.jivesoftware.community.favorites.rest.BookmarkService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import com.jivesoftware.betterbookmarks.rest.BetterBookmarksViewBean;
-import com.jivesoftware.betterbookmarks.rest.BetterBookmarkService;
+//import com.jivesoftware.managedbookmarks.rest.BetterBookmarksViewBean;
+//import com.jivesoftware.managedbookmarks.rest.BetterBookmarkService;
 
 import java.util.Set;
 

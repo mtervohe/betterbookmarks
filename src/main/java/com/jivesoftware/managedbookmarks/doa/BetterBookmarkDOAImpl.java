@@ -1,12 +1,9 @@
-package com.jivesoftware.betterbookmarks.doa;
+package com.jivesoftware.managedbookmarks.doa;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 import com.jivesoftware.base.database.dao.DAOException;
 import com.jivesoftware.base.database.dao.JiveJdbcDaoSupport;
 import com.jivesoftware.base.database.dao.SequenceProvider;
-import com.jivesoftware.community.EntityDescriptor;
-import com.jivesoftware.community.impl.dao.sql.SQLHelper;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

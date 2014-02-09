@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+       default-autowire="no" default-init-method="init" default-destroy-method="destroy">
+
+
+
+    <bean id="sequenceDAO" class="com.jivesoftware.base.database.dao.SequenceDAOImpl"/>
+    <bean id="ManagedBookmarkSequenceProvider" class="com.jivesoftware.base.database.dao.impl.SequenceProviderImpl">
+        <constructor-arg>
+            <util:constant static-field="com.jivesoftware.managedbookmarks.impl.ManagedBookmarkImpl.MANAGED_BOOKMARK_TYPE_ID"/>
+        </constructor-arg>
+        <constructor-arg ref="sequenceDAO"/>
+    </bean>
+
+    <!-- 5 -->
+    <bean id="managedBookmarkDAO" class="com.jivesoftware.managedbookmarks.doa.impl.ManagedBookmarkDAOImpl"
+          parent="jiveManager" >
+        <property name="dataSource">
+            <util:property-path path="dataSourceFactory.dataSource"/>
+        </property>
+        <property name="sequenceProvider" ref="ManagedBookmarkSequenceProvider"/>
+    </bean>
+
+
+</beans>

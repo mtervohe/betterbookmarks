@@ -6,19 +6,14 @@
 define('apps/betterbookmark/views/managedBookmark-view', ['jquery'],
     function($){
 
-        //jive.conc.observable(this);
-
         return jive.AbstractView.extend(function(protect) {
-        //console.log("view - oo called.");
             protect.init = function(){
-                console.log("view - init called.");
                 var view = this;
 
+                //Wire up event handlers
                 $('#managed-bookmark-create').click(function(eventObj) {
-                    //console.log("view - managed-bookmark-create.click called.");
-
-                    var managedName = $('#managed-bookmark-textarea').val();
-                    view.emit('managed-create', managedName);
+                    var bookmarkName = $('#managed-bookmark-textarea').val();
+                    view.emit('managedBookmark-create', bookmarkName);
                     $('#managed-bookmark-textarea').val('');
                     eventObj.preventDefault();
                 });

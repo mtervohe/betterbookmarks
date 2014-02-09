@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- the cache factory is exposed to spring so that we can create the different cache strategies -->
+    <bean id="cacheFactory" depends-on="kryoSerializerBootstrap"
+          class="com.jivesoftware.community.cache.CacheFactory"/>
+
+
+    <!-- Caching is central enough to what we do that we need it almost everywhere -->
+    <bean id="cacheFactoryManager" depends-on="cacheFactory"
+          class="com.jivesoftware.community.lifecycle.spring.CacheFactoryManager"/>
+
+
+
+</beans>

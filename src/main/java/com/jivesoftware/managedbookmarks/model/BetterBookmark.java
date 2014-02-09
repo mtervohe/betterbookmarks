@@ -1,8 +1,7 @@
-package com.jivesoftware.betterbookmarks.model;
+package com.jivesoftware.managedbookmarks.model;
 
 import com.jivesoftware.community.JiveContainer;
 import com.jivesoftware.community.JiveContentObject;
-import com.jivesoftware.community.JiveObject;
 import com.jivesoftware.community.annotations.RequiresUpdate;
 import com.jivesoftware.community.objecttype.MentionEnabled;
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd"
+       default-autowire="no" default-init-method="init" default-destroy-method="destroy">
+
+    <!-- 3 -->
+    <bean id="managedBookmarkServiceImpl" class="com.jivesoftware.managedbookmarks.rest.impl.ManagedBookmarkServiceImpl">
+        <property name="managedBookmarkManager" ref="managedBookmarkManager" />
+    </bean>
+
+    <!-- 2 -->
+    <!-- Wire up the rest call to a struts action -->
+    <jaxrs:server id="managedBookmarkService" address="/v2/rest/managed-bookmark">
+        <jaxrs:serviceBeans>
+             <ref bean="managedBookmarkServiceImpl"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="secureJsonProvider"/>
+            <ref bean="securityInterceptor"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+
+</beans>

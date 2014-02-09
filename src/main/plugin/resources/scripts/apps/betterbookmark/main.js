@@ -11,32 +11,23 @@ define('apps/betterbookmark/main',['apps/betterbookmark/views/managedBookmark-vi
     return jive.oo.Class.extend(function(protect) {
 
         protect.init = function(M) {
-            console.log("main - init called.");
+            //console.log("ManagedBookmark main - init called.");
             var main = this;
 
-            //View
-            main.managedView = this.createManagedView();
+            main.managedBookmarkRestSource = this.createManagedBookmarkRestSource();
+            main.managedBookmarkView = this.createManagedBookmarkView();
 
-            //Model
-            main.mnagedSource = this.createManagedSource();
-
-            /**/
-            main.managedView.addListener('managed-create', function(managedName) {
-                    //console.log("main - addListener(managed-create) called.");
-
-                    main.mnagedSource.addManagedBookmark(managedName);
+            main.managedBookmarkView.addListener('managedBookmark-create', function(bookmarkName) {
+                    main.managedBookmarkRestSource.addManagedBookmark(bookmarkName);
             });
-
-
-
 
         };
 
-        protect.createManagedView = function() {
+        protect.createManagedBookmarkView = function() {
             return new ManagedView();
         }
 
-        protect.createManagedSource = function(){
+        protect.createManagedBookmarkRestSource = function(){
             return new ManagedSource();
         };
 

@@ -1,6 +1,6 @@
-package com.jivesoftware.betterbookmarks.controller;
+package com.jivesoftware.managedbookmarks.controller;
 
-import com.jivesoftware.betterbookmarks.model.BetterBookmark;
+import com.jivesoftware.managedbookmarks.model.BetterBookmark;
 
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;

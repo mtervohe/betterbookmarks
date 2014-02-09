@@ -7,26 +7,25 @@ define('apps/betterbookmark/models/managedBookmark-source', ['jquery'],
 
     return jive.RestService.extend (function(protect, _super) {
 
-
-        //protect.resourceType = "support-product";
-        //protect.pluralizedResourceType = protect.resourceType;
+        //this.RESOURCE_ENDPOINT = jive.rest.url("/managed-bookmark");
+        protect.resourceType = "managed-bookmark";
+        protect.pluralizedResourceType = protect.resourceType;
 
         protect.init = function(options){
-        //console.log("source - init called.");
             _super.init.call(this, options);
 
-            // <-- 1 -->
+            // <!-- 1 -->
             this.RESOURCE_ENDPOINT = jive.rest.url("/managed-bookmark");
-            //this.RESOURCE_ENDPOINT = jive.rest.url("/support-product");
+            protect.resourceType = "managed-bookmark";
+            protect.pluralizedResourceType = protect.resourceType;
+
         }
 
-        this.addManagedBookmark = function updateManagedBookmark(managedName) {
-
+        this.addManagedBookmark = function updateManagedBookmark(bookmarkName) {
             var source = this,
-                url = this.RESOURCE_ENDPOINT + '/create/' + managedName,
-                data = {productName: managedName};
-
-            //console.log("source - addManagedBookmark called.");
+                url = this.RESOURCE_ENDPOINT + '/create/' + bookmarkName,
+                data = {bookmarkName: bookmarkName};
+            console.log("managedBookmark-source - updateManagedBookmark");
             return source.execute(url, data);
         }
 
@@ -34,7 +33,7 @@ define('apps/betterbookmark/models/managedBookmark-source', ['jquery'],
 
             var source = this,
                 promise = new jive.conc.Promise();
-
+            console.log("managedBookmark-source - execute 01");
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -44,9 +43,10 @@ define('apps/betterbookmark/models/managedBookmark-source', ['jquery'],
                 success: function(data, textStatus, xhr) {
                     promise.emitSuccess(data);
                 }
+
             });
 
-            //console.log("source - execute called.");
+            console.log("managedBookmark-source.xml - execute 02");
 
             return promise;
         };

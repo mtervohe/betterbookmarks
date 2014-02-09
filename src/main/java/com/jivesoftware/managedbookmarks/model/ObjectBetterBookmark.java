@@ -1,4 +1,4 @@
-package com.jivesoftware.betterbookmarks.model;
+package com.jivesoftware.managedbookmarks.model;
 
 import com.jivesoftware.base.User;
 import com.jivesoftware.community.JiveContainer;

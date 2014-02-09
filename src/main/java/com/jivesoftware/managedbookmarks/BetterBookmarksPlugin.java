@@ -1,10 +1,6 @@
-package com.jivesoftware.betterbookmarks;
+package com.jivesoftware.managedbookmarks;
 
 import com.jivesoftware.base.plugin.Plugin;
-import com.jivesoftware.community.JiveContainer;
-import com.jivesoftware.community.aaa.authz.EntitlementTypeProvider;
-import com.jivesoftware.community.objecttype.EntitlementCheckProvider;
-import com.jivesoftware.community.places.PlaceTabLink;
 import org.apache.log4j.Logger;
 
 /**

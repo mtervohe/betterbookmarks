@@ -1,1 +1,72 @@
-TEST 01
+DISABLE REST SECURITY
+jive.rest.internal.csrf.token.enabled=false
+
+
+
+
+311  cd ~/jive/sbs/jive6/plugins/supportal/
+  312  mvn clean package -DskipTests
+  313  ls
+  314  cd target/
+  315  ls
+  316  mkdir supportal-6.0.2.0
+  317  jar -xvf supportal-6.0.2.0.jar supportal-6.0.2.0/.
+  318  cd  supportal-6.0.2.0/
+  319  jar -xvf supportal-6.0.2.0.jar
+  320  jar -xvf supportal-6.0.2.0-plugin.jar
+  321  jar -xvf supportal-6.0.2.0-sources.jar
+  322  cd ~/jive/sbs/betterbookmarks/
+
+
+cd ~/jive/sbs/jive6/plugins/supportal/
+mvn clean package -DskipTests
+
+cd ~/jive/sbs/jive6/plugins/supportal/target/
+mkdir supportal-6.0.2.0
+cp supportal-6.0.2.0.jar supportal-6.0.2.0
+cp supportal-6.0.2.0-plugin.jar supportal-6.0.2.0
+cp supportal-6.0.2.0-sources.jar supportal-6.0.2.0
+cd supportal-6.0.2.0
+jar -xvf supportal-6.0.2.0.jar
+jar -xvf supportal-6.0.2.0-plugin.jar
+jar -xvf supportal-6.0.2.0-sources.jar
+cd ..
+
+
+cd ~/jive/sbs/betterbookmarks/
+mvn clean package -DskipTests
+
+TAIL LOGS:
+tail -f /Users/matthew.hernandez/jive/data/jive6/logs/sbs.log
+
+
+LOGS:
+-java files:
+System.out.println(" - ");
+
+-javascrip files:
+console.log(" - ");
+
+
+
+
+
+JAVA VERSION FROM 6 to 7 CHANGE:
+
+http://stackoverflow.com/questions/13594864/how-to-revert-to-java-1-6-on-mac-os-x-10-7-5
+
+export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
+java -version
+java version "1.6.0_37"
+Java(TM) SE Runtime Environment (build 1.6.0_37-b06-434-11M3909)
+Java HotSpot(TM) 64-Bit Server VM (build 20.12-b01-434, mixed mode)
+
+export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+java -version
+java version "1.7.0_09"
+Java(TM) SE Runtime Environment (build 1.7.0_09-b05)
+Java HotSpot(TM) 64-Bit Server VM (build 23.5-b02, mixed mode)
+
+
+JAVA SDK LOCATION:
+/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home

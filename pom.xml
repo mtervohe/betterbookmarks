@@ -25,7 +25,7 @@
     to pull project-wide properties (incl. jive.version and maven dependencies)
     by uncommenting the following parent section and making appropriate replacements.
         <parent>
-            <groupId>com.jivesoftware.betterbookmarks</groupId>
+            <groupId>com.jivesoftware.managedbookmarkss</groupId>
             <artifactId>REPLACE_ME_WITH_PARENT_ARTIFACT_ID</artifactId>
             <version>REPLACE_ME_WITH_PARENT_VERSION</version>
             <relativePath>../pom.xml</relativePath>

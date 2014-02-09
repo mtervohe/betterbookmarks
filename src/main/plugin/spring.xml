@@ -1,39 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+        http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+        http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+        http://cxf.apache.org/jaxrs
+        http://cxf.apache.org/schemas/jaxrs.xsd"
        default-autowire="no" default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="betterbookmarks" class="com.jivesoftware.betterbookmarks.BetterBookmarksPlugin" ></bean>
+    <bean id="betterbookmarks" class="com.jivesoftware.managedbookmarks.BetterBookmarksPlugin" ></bean>
 
     <!---->
     <bean id="peopleUrlMapping" scope="prototype"
           class="com.jivesoftware.community.web.struts.mapping.PeopleURLMappingSupport"> </bean>
 
-    <bean id="bookmarkItemBeanBuilder" class="com.jivesoftware.community.betterbookmarks.rest.impl.BookmarkItemBeanBuilderImpl" parent="itemBeanBuilder">
+    <!-- Hook it all up -->
+    <context:component-scan base-package="com.jivesoftware.managedbookmarks" annotation-config="true" />
+    <import resource="./spring-wsContext.xml"/>
+    <import resource="./spring-daoContext.xml"/>
+    <import resource="./spring-managerContext.xml"/>
+
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
+    <!--
+
+        <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+        <import resource="classpath:META-INF/cxf/cxf-extension-http-binding.xml" />
+
+        <import resource="classpath:META-INF/cxf/c                                                                                     ppppppΩΩΩΩxf-serxml" />
+
+
+
+         bad inports
+        <import resource="classpath:META-INF/cxf/osgi/cxf-extension-osgi.xml" />
+
+        -->
+
+
+    <!--
+    <bean id="bookmarkItemBeanBuilder" class="com.jivesoftware.community.managedbookmark.rest.impl.BookmarkItemBeanBuilderImpl" parent="itemBeanBuilder">
         <property name="propertyProviders" ref="bookmarkItemBeanBuilderProviders"/>
         <property name="userItemBeanBuilder" ref="userItemBeanBuilder"/>
     </bean>
-
-
-     <!-- 3 -->
-    <bean id="managedBookmarkImpl" class="com.jivesoftware.community.portal.product.rest.admin.impl.SupportProductAdminServiceImpl">
-        <property name="supportProductManager" ref="supportProductManager" />
-    </bean>
-
-    <!-- 2 -->
-    <jaxrs:server id="managedbookmark-rest" address="/v2/rest/managed-bookmark">
-        <jaxrs:serviceBeans>
-            <ref bean="managedBookmarkImpl"/>
-        </jaxrs:serviceBeans>
-        <jaxrs:providers>
-            <ref bean="secureJsonProvider"/>
-            <ref bean="securityInterceptor"/>
-        </jaxrs:providers>
-    </jaxrs:server>
+    -->
 
     <!--
     <bean id="profileTabLinksSupportChild" class="com.jivesoftware.community.util.spring.MergeableCollection" parent="placeTabLinks" scope="prototype">
@@ -45,9 +70,9 @@
     </bean>
 
 
-    <bean id="betterBookmarksPlugin" class="com.jivesoftware.betterbookmarks.BetterBookmarksPlugin" parent="actionLinkBase" scope="prototype">
-        <property name="ID" value="betterbookmarks" />
-        <property name="nameKey" value="profile.tab.betterbookmarks" />
+    <bean id="betterBookmarksPlugin" class="com.jivesoftware.managedbookmarkss.BetterBookmarksPlugin" parent="actionLinkBase" scope="prototype">
+        <property name="ID" value="managedbookmarks" />
+        <property name="nameKey" value="profile.tab.managedbookmarks" />
         <property name="url" value="/people" />
     </bean>
 

@@ -1,7 +1,6 @@
-package com.jivesoftware.betterbookmarks.doa;
+package com.jivesoftware.managedbookmarks.doa;
 
 import com.jivesoftware.base.database.dao.DAOException;
-import com.jivesoftware.community.EntityDescriptor;
 
 import java.util.Collection;
 import java.util.List;

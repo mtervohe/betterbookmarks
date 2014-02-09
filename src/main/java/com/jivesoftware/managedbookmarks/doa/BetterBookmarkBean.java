@@ -1,4 +1,4 @@
-package com.jivesoftware.betterbookmarks.doa;
+package com.jivesoftware.managedbookmarks.doa;
 
 import java.io.Serializable;
 import java.util.Date;

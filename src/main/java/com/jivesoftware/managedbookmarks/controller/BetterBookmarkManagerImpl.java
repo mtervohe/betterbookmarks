@@ -1,11 +1,11 @@
-package com.jivesoftware.betterbookmarks.controller;
+package com.jivesoftware.managedbookmarks.controller;
 
 //TO DO - Check Out: 'interface FavoriteManager'
 
 
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
-import com.jivesoftware.betterbookmarks.model.BetterBookmark;
+import com.jivesoftware.managedbookmarks.model.BetterBookmark;
 import com.jivesoftware.community.JiveObject;
 
 import java.util.Iterator;

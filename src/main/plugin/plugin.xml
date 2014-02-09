@@ -5,7 +5,7 @@
     <author>Matthew Tervo</author>
     <version>1.0.0</version>
     <minServerVersion>6.0</minServerVersion>
-    <maxServerVersion>6.0.3</maxServerVersion>
+    <maxServerVersion>6.0.4</maxServerVersion>
 
     <!-- Needed to add DB tables -->
     <databaseVersion>60200000</databaseVersion>
@@ -17,8 +17,8 @@
     <urlmapping prefix="/betterbookmarks" class="com.jivesoftware.community.web.struts.mapping.PeopleURLMappingSupport" />
 
     <!-- you will want to change your class name here! -->
-    <class>com.jivesoftware.betterbookmarks.BetterBookmarksPlugin</class>
-    <class>com.jivesoftware.betterbookmarks.action.ProfileBetterBookmarksBrowseAction</class>
+    <class>com.jivesoftware.managedbookmarks.BetterBookmarksPlugin</class>
+    <class>com.jivesoftware.managedbookmarks.action.ProfileBetterBookmarksBrowseAction</class>
 
     <!--Soy files. -->
     <soy src="/plugins/betterbookmarks/resources/soy/betterbookmark.soy" />
