@@ -20,7 +20,12 @@ define('apps/betterbookmark/views/managedBookmark-view', ['jquery'],
 
             }
 
+            this.reloadPage = function() {
+                location.reload();
+            };
+
         });
+
     });
 
  /*

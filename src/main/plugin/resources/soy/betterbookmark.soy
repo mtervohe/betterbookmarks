@@ -4,7 +4,8 @@
 /**
 * Renders a modified version of the content section for "bookmarks". This is used on pages such as the user profile.
 *
-* @param browseViewID A unique name for this browse view.
+* param? browseViewID A unique name for this browse view.
+* @param managedBookmarkList
 *
 * @depends path=/resources/scripts/apps/shared/models/bookmark_source.js
 * @depends path=/resources/scripts/apps/bookmark_app/browse/main.js
@@ -32,7 +33,10 @@
  
     /*Renders the profile page - originally called jive.browse.layout.layoutBody in layout.soy*/
     {call jive.betterbookmark.browse.layout.layoutBody data="all"}
+        /*
         {param browseViewID: $browseViewID/}
+        */
+        {param managedBookmarkList: $managedBookmarkList/}
     {/call}
  
  

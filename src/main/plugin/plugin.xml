@@ -19,6 +19,7 @@
     <!-- you will want to change your class name here! -->
     <class>com.jivesoftware.managedbookmarks.BetterBookmarksPlugin</class>
     <class>com.jivesoftware.managedbookmarks.action.ProfileBetterBookmarksBrowseAction</class>
+    <class>com.jivesoftware.managedbookmarks.action.ManagedBookmarkAction</class>
 
     <!--Soy files. -->
     <soy src="/plugins/betterbookmarks/resources/soy/betterbookmark.soy" />

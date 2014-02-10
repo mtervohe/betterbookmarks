@@ -7,6 +7,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import com.jivesoftware.managedbookmarks.doa.ManagedBookmarkDAO;
 
+import java.util.List;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,6 +39,11 @@ public class ManagedBookmarkManagerImpl implements ManagedBookmarkManager, JiveM
         managedBookmark = managedBookmarkDAO.createManagedBookmark(managedBookmark);
 
         return managedBookmark;
+    }
+
+    public List<ManagedBookmarkImpl> getManagedBookmarks() {
+        log.info("ManagedBookmarkManagerImpl - getManagedBookmarks");
+        return managedBookmarkDAO.getManagedBookmarks();
     }
 
     @Override

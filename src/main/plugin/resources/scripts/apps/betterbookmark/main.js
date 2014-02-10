@@ -19,6 +19,8 @@ define('apps/betterbookmark/main',['apps/betterbookmark/views/managedBookmark-vi
 
             main.managedBookmarkView.addListener('managedBookmark-create', function(bookmarkName) {
                     main.managedBookmarkRestSource.addManagedBookmark(bookmarkName);
+                    //TO DO: Reload full page for now, reload only list via ajax later
+                    main.managedBookmarkView.reloadPage();
             });
 
         };

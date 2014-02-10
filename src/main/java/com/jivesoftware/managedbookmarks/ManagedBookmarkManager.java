@@ -1,5 +1,9 @@
 package com.jivesoftware.managedbookmarks;
 
+import com.jivesoftware.managedbookmarks.impl.ManagedBookmarkImpl;
+
+import java.util.List;
+
 /**
  * This manager provides an interface to create managed bookmarks.
  */
@@ -11,4 +15,10 @@ public interface ManagedBookmarkManager {
      * @return newly created managed bookmark
      */
     ManagedBookmark createManagedBookmark(String bookmarkName);
+
+    /**
+     * Retrieve a list managed bookmarks.
+     * @return list of Bookmarks
+     */
+    List<ManagedBookmarkImpl> getManagedBookmarks();
 }

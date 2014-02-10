@@ -85,3 +85,14 @@ table#browse-list tbody {
     color: blue;
 }
 
+
+.managedBookmarkRow {
+    margin:0px;
+    padding:8px;
+    border-top: 1px solid #fcfdec;
+    border-bottom:0px;
+    border-left: 1px solid #fcfdec;;
+    border-right:0px;
+    display: block;
+
+}

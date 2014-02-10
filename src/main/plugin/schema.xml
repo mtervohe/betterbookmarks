@@ -2,7 +2,7 @@
 
     <!--  Table for managedBookmark -->
     <table name="managedBookmark" description="Managed Bookmark list">
-        <column name="bookmarkID" type="bigint" nullable="false" description="Product ID"/>
+        <column name="bookmarkID" type="bigint" nullable="false" description="Bookmark ID"/>
         <column name="bookmarkName" type="varchar" size="255" nullable="false" unicode="true"
                 description="Display name of the bookmark"/>
 

@@ -2,17 +2,18 @@
 
 /**
 * Renders the layout body.
-* @param browseViewID A unique name for this browse view.
-* @param archetypeID The ID of the archetype associated with this browse view.
-* @param itemsView An {@link ItemsViewBean} object which has associated items.
+* param? browseViewID A unique name for this browse view.
+* param? archetypeID The ID of the archetype associated with this browse view.
+* param? itemsView An {@link ItemsViewBean} object which has associated items.
 * param? hideSidebar Whether or not to hide or show the sidebar.
-* @param filterGroup A {@link FilterGroupBean} object with nested filters.
+* param? filterGroup A {@link FilterGroupBean} object with nested filters.
 * param? hideFilterGroup Whether or not the filter group should be displayed.
 * param? firstColumnContent content to display below filters in the left column
 * param? lowerContent content to display below browsable items
 * @param? layoutClass An optional class passed to the layout div element
-* @param urlParams map of query parameters for the last request
-* @param urlPath path for the last request
+* param? urlParams map of query parameters for the last request
+* param? urlPath path for the last request
+* @param managedBookmarkList
 *
 * @depends template=jive.betterbookmark.browse.filter.*
 * @depends template=jive.betterbookmark.browse.grid.*
@@ -25,13 +26,13 @@
          <div class="j-column-wrap-l">
              <div class="j-column j-column-l j-column-l-nav">
 
-                 /*Renders the browse nav bar/filter*/
+                 /*Renders the browse nav bar/filter
                  {call jive.betterbookmark.browse.filter.filters data="$filterGroup"}
                      {param itemsView: $itemsView /}
                      {param urlParams: $urlParams /}
                      {param urlPath: $urlPath /}
                  {/call}
-
+                  */
 
                 <div id="maincontainer">
                     <div id="contentwrapper">
@@ -41,29 +42,33 @@
                     </div>
                     <div id="leftcolumn">
                          <div class="innertube"><b>Bookmark Column</b></div>
+                         /*
                          <div id="j-browse-item-grid" class="j-box-body" role="main" aria-label="{i18nText('browse.filter.grid')}">
                              {call jive.betterbookmark.browse.grid.itemGrid data="$itemsView"}
                                  {param browseViewID: $browseViewID/}
                                  {param archetypeID: $archetypeID/}
                              {/call}
                          </div>
+                        */
                     </div>
                     <div id="rightcolumn">
-                    <div class="innertube"><b>Managed Bookmark Column</b></div>
+                        <div class="innertube"><b>Managed Bookmark Column</b></div>
+                         <h2>Create a Managed Bookmark<h2>
+                         <div>
+                             <textarea id="managed-bookmark-textarea" cols="100" rows="1"></textarea>
+                         </div>
+                         <div>
+                            <button id="managed-bookmark-create">Create</button>
+                         </div>
 
-                     <div id="addfolder"></div>
-                     <div id="list"></div>
-
-                     <h2>
-                        Create a Managed Bookmark
-                     <h2>
-                     <div>
-                         <textarea id="managed-bookmark-textarea" cols="100" rows="1"></textarea>
-                     </div>
-                     <div>
-                        <button id="managed-bookmark-create">Create</button>
-                     </div>
-
+                         <h4>
+                            LIST:
+                         <h4>
+                         {foreach $bookmark in $managedBookmarkList}
+                            <div class="managedBookmarkRow">
+                                {$bookmark.bookmarkName}
+                            </div>
+                         {/foreach}
 
                     </div>
                 </div>
@@ -75,7 +80,7 @@
 
 /*
 
-
+           REFER supportproduct.soy
 
                           <script>
                               require('betterbookmark/main');

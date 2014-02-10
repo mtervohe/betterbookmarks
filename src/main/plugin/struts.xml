@@ -25,9 +25,17 @@
 
     <package name="betterbookmarks-actions" namespace="" extends="community-default">
 
+        <!--
         <action name="betterbookmarks" class="com.jivesoftware.managedbookmarks.action.ProfileBetterBookmarksBrowseAction">
             <result name="success" type="soy">jive.betterbookmark.body</result>
         </action>
+        -->
+
+        <action name="betterbookmarks" class="com.jivesoftware.managedbookmarks.action.ManagedBookmarkAction">
+            <result name="success" type="soy">jive.betterbookmark.body</result>
+        </action>
+
+
 
 <!--
          <action name="addfolder"  method="doAdd" class="com.jivesoftware.managedbookmarkss.action.ProfileBetterBookmarksBrowseAction">
